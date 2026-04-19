@@ -1,0 +1,10 @@
+package pacotinho;
+
+public class AtividadeRegex {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

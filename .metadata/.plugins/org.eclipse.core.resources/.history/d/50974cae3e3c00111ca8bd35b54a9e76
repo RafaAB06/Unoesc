@@ -1,0 +1,41 @@
+package pacotinho;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class AtividadeRegex {
+	private static Pattern regexNumero = Pattern.compile(".*[0-9]+.*");
+	private static Pattern regexMinuscula = Pattern.compile(".*[a-z]+.*");
+	private static Pattern regexMaiuscula = Pattern.compile(".*[A-Z]+.*");
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		boolean res = true;
+		do {
+			System.out.println("Insira uma senha para ser validada: ");
+			validarSenha(scan.nextLine());
+			
+			System.out.print("Deseja continuar?\n[1]-Sim\n[2]-Não");
+			res = scan.nextInt() == 1;
+			scan.next();//pra limpar o buffer do enter...
+		}while(res);
+		
+		scan.close();
+	}
+	
+	private static void validarSenha(String senha) {
+		if(senha.length() < 8) {
+			System.out.println("A senha requer ao menos 8 caracteres!");
+		}else if(!regexNumero.matcher(senha).matches()){
+			System.out.println("A senha requer ao menos 1 número!");
+		}else if(!regexMinuscula.matcher(senha).matches()) {
+			System.out.println("A senha requer ao menos 1 minúscula!");	
+		}else if(regexMaiuscula.matcher(senha).matches()) {
+			System.out.println("A senha requer ao menos 1 maiúscula!");
+		}else {
+			System.out.println("Senha válida!");
+		}
+	}
+}

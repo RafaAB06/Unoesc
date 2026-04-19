@@ -1,0 +1,29 @@
+package pacotinho;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class AtividadeRegex {
+	private Pattern regexNumero;
+	private Pattern regexMinuscula;
+	private Pattern regexMaiuscula;
+	private Scanner scan = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		regexNumero = Pattern.compile(".*[0-9]+.*");
+		regexMinuscula = Pattern.compile(".*[a-z]+.*");
+		regexMinuscula = Pattern.compile(".*[A-Z]+.*");
+		
+		boolean res = true;
+		do {
+			validarSenha(scan.nextLine());
+		}while(res);
+		
+		scan.close();
+	}
+	
+	private static validarSenha(String senha) {
+		
+	}
+}
